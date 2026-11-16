@@ -4,19 +4,15 @@ import PageShell from "@/components/PageShell";
 import { Figure, Note } from "../setup/parts";
 
 export const metadata: Metadata = {
-  title: "Pipelines & Community — Gardener | CrossOmics",
-  description: "A practical guide to Gardener 3.0: community search and version trees, custom pipelines and Loops, run tracking, the Agent, package sharing, registration and maintenance rankings."
+  title: "Pipelines & Runs — Gardener | CrossOmics",
+  description: "A practical guide to Gardener 3.0: custom pipelines and Loops, run tracking, the Agent, package sharing, datasets and execution environments."
 };
 
 const topics = [
-  ["community", "Find a community pipeline"],
-  ["versions", "Choose a version"],
   ["canvas", "Build on the canvas"],
   ["runs", "Inspect a run"],
   ["agent", "Work with the Agent"],
   ["packages", "Import and publish packages"],
-  ["register", "Register your contribution"],
-  ["ranking", "Read the risk ranking"],
   ["more", "Datasets, sandboxes & benchmarks"]
 ] as const;
 
@@ -34,20 +30,20 @@ function Screenshot({ file, alt, caption }: { file: string; alt: string; caption
 export default function PipelinesGuide() {
   return (
     <PageShell
-      title="Pipelines & Community"
+      title="Pipelines & Runs"
       subtitle="A hands-on introduction to Gardener 3.0"
-      breadcrumb={[{ label: "Tutorial", href: "/tutorial" }, { label: "Pipelines & Community" }]}
+      breadcrumb={[{ label: "Tutorial", href: "/tutorial" }, { label: "Pipelines & Runs" }]}
     >
       <div className="feature-guide-lede">
         <p>
-          Start with a tool or workflow from the community, adapt it on the canvas,
-          and keep a record of the inputs, parameters and results. This guide
-          shows where to find the new features and how to use them together.
+          Build or import a pipeline, adapt it on the canvas, and keep a record
+          of its inputs, parameters and results. This guide covers editing,
+          execution history, the Agent and sharing runnable packages.
         </p>
         <Note>
           First install the app and open a project using the <Link className="cta-link" href="/tutorial/setup">setup guide</Link>.
-          Browsing the registry does not need an LLM API key. Running a pipeline
-          needs a suitable local sandbox or a connected HPC; using the Agent also
+          Running a pipeline needs a suitable local sandbox or a connected HPC;
+          using the Agent also
           needs a configured model and API key.
         </Note>
       </div>
@@ -58,49 +54,9 @@ export default function PipelinesGuide() {
         ))}
       </nav>
 
-      <section className="section feature-guide-section" aria-labelledby="community">
-        <div className="section-header">
-          <div className="section-eyebrow">01 / SEARCH</div>
-          <h2 className="section-title" id="community">Find a community pipeline</h2>
-        </div>
-        <div className="section-body">
-          <ol className="setup-ol">
-            <li>In an open project, find <strong>Pipelines</strong> in the left sidebar. Click the <strong>globe icon</strong> to open Community pipelines.</li>
-            <li>Choose <strong>Search</strong>. Enter a tool name, such as <strong>STAR</strong>, or a term describing your task.</li>
-            <li>Narrow the results by <strong>Kind</strong> (Tool or Workflow), <strong>Modality</strong> or <strong>Domain</strong>. Use <strong>Runnable in Gardener</strong> when you want a version with a Gardener package.</li>
-            <li>Open a result to see its repository, papers, contributors, metrics and version tree.</li>
-          </ol>
-          <Note>
-            Results list <strong>Originals</strong>: the main tool or workflow
-            entries. Releases and community optimizations appear inside each
-            Original, rather than as separate search results. If a task keyword
-            does not match an entry, try its name or the modality filters.
-          </Note>
-          <Screenshot file="community-search" alt="Community Search with STAR entered, modality and domain filters, and matching Original pipelines" caption="The globe opens Community pipelines. Search results lead to an Original’s details and versions." />
-          <p>Use <strong>Refresh</strong> to check for a new index. Once downloaded, the cached index can still be browsed offline; the header shows when it was updated and checked.</p>
-        </div>
-      </section>
-
-      <section className="section feature-guide-section" aria-labelledby="versions">
-        <div className="section-header">
-          <div className="section-eyebrow">02 / VERSION TREE</div>
-          <h2 className="section-title" id="versions">Choose the implementation you need</h2>
-        </div>
-        <div className="section-body">
-          <ol className="setup-ol">
-            <li>Open an Original, then scroll to <strong>Versions and optimizations</strong>.</li>
-            <li>Select a node in the tree. <strong>Original</strong> denotes an upstream release; <strong>Optimization</strong> denotes a contributed improvement based on another version of that Original.</li>
-            <li>Review the repository and commit, contribution notes, and any listed test datasets or benchmark results.</li>
-            <li>If the selected version provides a Gardener package, use its import action to bring it into your project. Otherwise, use the repository and commit links to inspect the source.</li>
-          </ol>
-          <Screenshot file="version-tree" alt="STAR detail panel showing the connected 2.7.11a and 2.7.11b Original versions, the selected commit, and Submit an optimization of this version" caption="Select a tree node to inspect that version. A registered source version does not necessarily include a runnable package." />
-          <p>For an existing local pipeline, <strong>Link to community version…</strong> in the canvas header lets you record its community association. Linking records a relationship; it does not replace or import the pipeline’s code.</p>
-        </div>
-      </section>
-
       <section className="section feature-guide-section" aria-labelledby="canvas">
         <div className="section-header">
-          <div className="section-eyebrow">03 / CANVAS</div>
+          <div className="section-eyebrow">01 / CANVAS</div>
           <h2 className="section-title" id="canvas">Build a pipeline and save a version</h2>
         </div>
         <div className="section-body">
@@ -123,7 +79,7 @@ export default function PipelinesGuide() {
 
       <section className="section feature-guide-section" aria-labelledby="runs">
         <div className="section-header">
-          <div className="section-eyebrow">04 / RUN HISTORY</div>
+          <div className="section-eyebrow">02 / RUN HISTORY</div>
           <h2 className="section-title" id="runs">Inspect what actually ran</h2>
         </div>
         <div className="section-body">
@@ -145,7 +101,7 @@ export default function PipelinesGuide() {
 
       <section className="section feature-guide-section" aria-labelledby="agent">
         <div className="section-header">
-          <div className="section-eyebrow">05 / AGENT</div>
+          <div className="section-eyebrow">03 / AGENT</div>
           <h2 className="section-title" id="agent">Ask about a specific execution</h2>
         </div>
         <div className="section-body">
@@ -161,13 +117,13 @@ export default function PipelinesGuide() {
 
       <section className="section feature-guide-section" aria-labelledby="packages">
         <div className="section-header">
-          <div className="section-eyebrow">06 / PACKAGES</div>
+          <div className="section-eyebrow">04 / PACKAGES</div>
           <h2 className="section-title" id="packages">Import once, adapt, then share</h2>
         </div>
         <div className="section-body">
           <h3>Import a package</h3>
           <ol className="setup-ol">
-            <li>Click the <strong>cloud-download icon beside Pipelines</strong>, or choose the import action on a community version that provides a package.</li>
+            <li>Click the <strong>cloud-download icon beside Pipelines</strong> to import a runnable package.</li>
             <li>Enter the published registry reference, including its <strong>sha256 digest</strong>. Provide registry credentials in the desktop app when required.</li>
             <li>Review the import options and wait for verification. Depending on the package and chosen options, runtime images or supported public input data may also need downloading.</li>
             <li>Open the imported pipeline, review its description and inputs, and supply any user-provided data before running.</li>
@@ -179,53 +135,13 @@ export default function PipelinesGuide() {
             <li>Set the target registry and package options, review the included environment and data references, and publish.</li>
             <li>Share the resulting digest-pinned reference. Publish records carry signed provenance, and registry tokens stay in the desktop credential store.</li>
           </ol>
-          <Note>Publishing a package uploads runnable material to a registry. Registering it in Community is a separate step that makes the version discoverable.</Note>
-        </div>
-      </section>
-
-      <section className="section feature-guide-section" aria-labelledby="register">
-        <div className="section-header">
-          <div className="section-eyebrow">07 / CONTRIBUTE</div>
-          <h2 className="section-title" id="register">Register an Original or an Optimization</h2>
-        </div>
-        <div className="section-body">
-          <ol className="setup-ol">
-            <li>Open the globe beside Pipelines, then select <strong>Register</strong>.</li>
-            <li>Choose <strong>Original</strong> for a new tool or workflow entry. For an <strong>Optimization</strong>, first select the existing Original and the parent version your improvement builds on.</li>
-            <li>Fill in the repository, source commit, version and contributor details. For an optimization, describe what improved; add test datasets, benchmark results and an optional Gardener package reference when available.</li>
-            <li>Resolve field errors and inspect the generated preview. Connect your GitHub account using the desktop app’s token controls, then submit.</li>
-            <li>Gardener opens a pull request to the <a className="cta-link" href="https://github.com/CrossOmics/pipeline-registry" target="_blank" rel="noopener noreferrer">community registry</a>. Follow its status in the submission list. After review and merge, it appears when the published index is rebuilt and refreshed.</li>
-          </ol>
-          <Note>Submit the source commit that actually produced your version. Registry submission creates a reviewable PR; it does not immediately publish an entry or merge the PR.</Note>
-        </div>
-      </section>
-
-      <section className="section feature-guide-section" aria-labelledby="ranking">
-        <div className="section-header">
-          <div className="section-eyebrow">08 / MAINTENANCE</div>
-          <h2 className="section-title" id="ranking">Read the risk ranking</h2>
-        </div>
-        <div className="section-body">
-          <ol className="setup-ol">
-            <li>In Community pipelines, select <strong>Risk ranking</strong>.</li>
-            <li>Compare the risk score with <strong>Original GitHub update</strong>, the activity details and the three annual citation columns. On a narrow window, scroll the table horizontally to see every column.</li>
-            <li>Read <strong>BioCode maintenance</strong> separately to see whether replacement maintenance is registered or planned. Follow the <a className="cta-link" href="https://github.com/BioCode-Commons" target="_blank" rel="noopener noreferrer">BioCode Commons</a> link for community maintenance projects.</li>
-            <li>Use <strong>Open public page</strong> to view or share the <a className="cta-link" href="https://crossomics.github.io/pipeline-registry/ranking/" target="_blank" rel="noopener noreferrer">ranking without installing Gardener</a>. Enable <strong>Include mature (stable) pipelines</strong> if you also want those entries.</li>
-          </ol>
-          <Screenshot file="risk-ranking" alt="Risk ranking with risk scores, original GitHub update dates, BioCode maintenance statuses, and citation columns" caption="Rankings use the original author’s repository. BioCode maintenance is recorded separately; values reflect the collection date shown in the app." />
-          <Note>
-            Higher risk means a widely cited pipeline may need community attention;
-            it is not a verdict on code quality. The ranking stays ordered by risk
-            score. Replacement maintenance does not change the original
-            repository’s activity score. The citation window is the previous two
-            full years plus the current year to date.
-          </Note>
+          <Note>Publishing a package uploads runnable material to the configured package registry. Share its digest-pinned reference so others can import that exact package.</Note>
         </div>
       </section>
 
       <section className="section feature-guide-section" aria-labelledby="more">
         <div className="section-header">
-          <div className="section-eyebrow">09 / MORE TO TRY</div>
+          <div className="section-eyebrow">05 / MORE TO TRY</div>
           <h2 className="section-title" id="more">Datasets, sandboxes and benchmarks</h2>
         </div>
         <div className="section-body">

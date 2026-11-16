@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GITHUB_URL, COMMUNITY_URL } from "@/lib/nav";
+import { GITHUB_URL } from "@/lib/nav";
 import { content } from "@/lib/content";
 
 export default function Hero() {
@@ -24,7 +24,6 @@ export default function Hero() {
         <a className="pill-btn" href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
           {hero.secondaryCta}
         </a>
-        <a className="pill-btn" href={COMMUNITY_URL}>Explore the community</a>
       </div>
     </section>
   );

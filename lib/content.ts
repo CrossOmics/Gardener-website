@@ -112,7 +112,7 @@ export const content = {
         num: "03",
         title: "Privacy",
         sub: "Built around rigorous dry-lab workflows",
-        desc: "Gardener is built to work with established community pipelines such as nf-core. Instead of relying on ad hoc commands, analyses can be launched, recorded, and repeated through trusted workflow standards."
+        desc: "Gardener is built to work with established analysis pipelines such as nf-core. Instead of relying on ad hoc commands, analyses can be launched, recorded, and repeated through trusted workflow standards."
       },
       {
         num: "04",
