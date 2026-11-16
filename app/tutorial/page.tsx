@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Tutorial — Gardener | CrossOmics",
-  description: "Get started with Gardener: install the app, run an analysis, build custom pipelines, explore community versions, and trace and share your results."
+  description: "Get started with Gardener: install the app, run an analysis, build custom pipelines, and trace and share your results."
 };
 
 export default function TutorialPage() {
@@ -14,11 +14,11 @@ export default function TutorialPage() {
     <PageShell title="Tutorial" subtitle="Meet Gardener. Build, trace and share your analysis." breadcrumb="Tutorial">
       <section className="tutorial-intro" aria-labelledby="v3-intro-title">
         <span className="setup-pill">Gardener 3.0</span>
-        <h2 id="v3-intro-title">From a community workflow to your own reproducible run</h2>
+        <h2 id="v3-intro-title">Build and trace your own reproducible analysis</h2>
         <p>
-          Find a tool or workflow in the community browser, inspect its versions,
-          and import a runnable package. Then use the canvas to adapt the pipeline,
-          follow its runs and outputs, and share a version with others.
+          Create a pipeline on the canvas or import a runnable package. Connect
+          your data, configure each step, and follow its runs and outputs. Save
+          versions and share a package when the analysis is ready.
         </p>
         <Link className="setup-btn" href="/tutorial/pipelines">
           Explore the new features <Arrow />
@@ -84,24 +84,6 @@ export default function TutorialPage() {
         </div>
       </Reveal>
 
-      <Reveal as="section" className="section" hover={false}>
-        <div className="section-header">
-          <div className="section-eyebrow">04 / COMMUNITY</div>
-          <h2 className="section-title">Find Versions and Contribute Improvements</h2>
-        </div>
-        <div className="section-body">
-          <p>
-            Open the globe beside Pipelines to search Originals, explore releases
-            and optimizations in a version tree, register your work, and check
-            which widely used pipelines may need community maintenance.
-          </p>
-          <p className="setup-cta-row">
-            <Link className="setup-btn" href="/tutorial/pipelines#community">
-              Learn the community workflow <Arrow />
-            </Link>
-          </p>
-        </div>
-      </Reveal>
     </PageShell>
   );
 }

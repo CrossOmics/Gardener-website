@@ -29,7 +29,7 @@ app/
 ├── globals.css           # all styles (no Tailwind, hand-rolled CSS)
 ├── about/page.tsx        # About — what Gardener is
 ├── tutorial/page.tsx     # Tutorial — Gardener intro
-│   ├── pipelines/       # v3 Pipeline & Community guide, linked from the intro
+│   ├── pipelines/       # v3 Pipeline & Runs guide, linked from the intro
 │   └── setup/            # setup guide + sphere-node companion page
 ├── research/page.tsx     # Research — publications list
 ├── approach/page.tsx     # Approach — HPC-native / three-party computation
@@ -78,11 +78,8 @@ fallback stack. Weights 400/500/600/700 only. No serif.
 
 ## Assets
 
-`public/tutorial-v3/` contains four screenshots captured from the running Gardener
-frontend on 2026-11-03: community search, STAR's version tree, the maintenance
-ranking, and a STAR/StringTie comparison canvas. No credentials or chat contents
-are included. Ranking values are examples from the collection date shown, not
-live website metrics. The guide links each image at full size for readability.
+`public/tutorial-v3/` contains a STAR/StringTie comparison canvas captured from
+Gardener on 2026-11-03. The guide links the image at full size for readability.
 
 ### Plant Illustrations (`public/plants/`)
 
@@ -110,10 +107,6 @@ no longer referenced by any code.
 3. Create `app/<route>/page.tsx` using `<PageShell title="…" subtitle="…" breadcrumb="…">`.
 4. Drop the card image in `public/plants/`.
 
-## Community
-
-The Community website, accounts, registry submission and moderation, bounties, and contribution history are maintained in [CrossOmics/CrossOmics-website](https://github.com/CrossOmics/CrossOmics-website). Use that repository's deployment and integration-testing instructions for Community. This Gardener product website does not host those routes or require those settings.
-
 ## License
 
 The site source is internal to CrossOmics. Third-party assets follow their respective licenses (see [Assets](#assets)).
@@ -123,9 +116,9 @@ The site source is internal to CrossOmics. Third-party assets follow their respe
 
 This public website is extracted from [CrossOmics/CrossOmics-website](https://github.com/CrossOmics/CrossOmics-website) at commit `02c241243093a5ca14aae69f001a21136de2b81f`. Existing text and image attributions above are retained. The original Git history remains in the source repository.
 
-Community accounts, registry moderation, bounties, and contributions live at [CrossOmics Community](https://www.cross-omics.com/). This repository has no Community API proxy or database/OAuth configuration.
+This product website serves public documentation and tutorials. It has no application API proxy, database, or account sign-in configuration.
 
-Create a separate Vercel project importing this repository, using the Next.js preset and repository root. Use `npm ci` and `npm run build`; no environment secrets are required. Keep the Community project and its cross-omics.com domain bindings unchanged.
+Create a separate Vercel project importing this repository, using the Next.js preset and repository root. Use `npm ci` and `npm run build`; no environment secrets are required. Use the dedicated Gardener Vercel project and its own deployment domain.
 
 To verify a running local production build:
 
